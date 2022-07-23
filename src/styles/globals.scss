@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import "mixins";
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Playball&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish&family=Nanum+Gothic&display=swap");
 
 body {
   @apply bg-neutral-900 text-slate-100;
@@ -19,7 +19,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-serif;
+  font-family: "Mulish";
 }
 
 .fade {

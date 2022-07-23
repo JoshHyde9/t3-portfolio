@@ -4,7 +4,6 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      serif: "Playball",
       sans: "Nanum Gothic",
     },
     extend: {
