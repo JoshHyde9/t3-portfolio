@@ -5,8 +5,16 @@ import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
 import "../styles/globals.css";
 
+// Navbar component
+import NavBar from "../components/NavBar";
+
 const MyApp: AppType = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <NavBar />
+      <Component {...pageProps} />
+    </>
+  );
 };
 
 const getBaseUrl = () => {
