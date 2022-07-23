@@ -10,9 +10,9 @@ interface GuestBook {
 
 const Guest = (guest: GuestBook) => {
   return (
-    <div className="p-4 max-w-md">
+    <div className="pb-4 max-w-md">
       <p className="text-lg">{guest.comment}</p>
-      <h1 className="text-md text-purple-300">
+      <h1 className="text-xl text-purple-300">
         <span className="italic">&#8211; </span>
         {guest.username}
       </h1>
@@ -35,7 +35,7 @@ const GuestBook: React.FC = () => {
 
   return (
     <div className="container mx-auto max-w-lg px-2">
-      <h1 className="text-2xl text-purple-300 mt-2">Guestbook</h1>
+      <h1 className="text-3xl text-purple-300 mt-2">Guestbook</h1>
       <p className="leading-tight">
         Please feel free to leave a comment now that you have found this page!
       </p>
