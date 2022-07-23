@@ -11,7 +11,9 @@ datasource db {
 }
 
 model GuestBook {
-    id String @id @default(uuid())
-    username String 
-    comment String
+    id          String    @id   @default(uuid())
+    username    String 
+    comment     String
+
+    createdAt   DateTime        @default(now())
 }
