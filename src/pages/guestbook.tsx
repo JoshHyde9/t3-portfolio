@@ -35,7 +35,7 @@ const GuestBook: React.FC = () => {
 
   return (
     <div className="container mx-auto max-w-lg px-2">
-      <h1 className="text-3xl text-purple-300 mt-2">Guestbook</h1>
+      <h1 className="text-4xl text-purple-300 mt-2">Guestbook</h1>
       <p className="leading-tight">
         Please feel free to leave a comment now that you have found this page!
       </p>
