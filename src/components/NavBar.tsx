@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 const MobileNav = ({ open, setOpen }: any) => {
+  const router = useRouter();
+
   return (
     <div
       className={`absolute top-0 left-0 h-screen w-screen bg-neutral-900 transform ${
@@ -10,18 +12,40 @@ const MobileNav = ({ open, setOpen }: any) => {
     >
       <div className="flex flex-col ml-4">
         <a
-          className="text-xl font-medium my-4"
+          className={`text-xl font-normal my-4 ${
+            router.asPath === "/about" ? "text-purple-500" : ""
+          }`}
           href="/about"
           onClick={() => setOpen(!open)}
         >
           About
         </a>
         <a
-          className="text-xl font-normal my-4"
+          className={`text-xl font-normal my-4 ${
+            router.asPath === "/contact" ? "text-purple-500" : ""
+          }`}
           href="/contact"
           onClick={() => setOpen(!open)}
         >
           Contact
+        </a>
+        <a
+          className={`text-xl font-normal my-4 ${
+            router.asPath === "/guestbook" ? "text-purple-500" : ""
+          }`}
+          href="/guestbook"
+          onClick={() => setOpen(!open)}
+        >
+          Guestbook
+        </a>
+        <a
+          className={`text-xl font-normal my-4 ${
+            router.asPath === "/" ? "text-purple-500" : ""
+          }`}
+          href="/home"
+          onClick={() => setOpen(!open)}
+        >
+          Home
         </a>
       </div>
     </div>
@@ -62,6 +86,7 @@ export const NavBar = () => {
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>
           <NavLink to="/guestbook">Guestbook</NavLink>
+          <NavLink to="/">Home</NavLink>
         </div>
       </div>
     </nav>
