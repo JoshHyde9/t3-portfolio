@@ -6,7 +6,6 @@ const createGuestBookSchema = z.object({
   comment: z.string().min(1, { message: "Please fill in required field." }),
 });
 
-// This is a useless comment
 export const guestBook = createRouter()
   .mutation("create", {
     input: createGuestBookSchema,
