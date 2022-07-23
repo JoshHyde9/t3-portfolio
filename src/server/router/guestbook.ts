@@ -21,7 +21,11 @@ export const guestBook = createRouter()
   })
   .query("getAll", {
     async resolve({ ctx }) {
-      const allGuests = await ctx.prisma.guestBook.findMany();
+      const allGuests = await ctx.prisma.guestBook.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
 
       return allGuests;
     },
