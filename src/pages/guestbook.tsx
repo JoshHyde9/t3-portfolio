@@ -34,7 +34,7 @@ const GuestBook: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto max-w-lg px-2">
+    <div className="container mx-auto max-w-2xl px-2">
       <h1 className="text-4xl text-purple-300 mt-2">Guestbook</h1>
       <p className="leading-tight">
         Please feel free to leave a comment now that you have found this page!
@@ -105,7 +105,7 @@ const GuestBook: React.FC = () => {
         </Form>
       </Formik>
 
-      <div className="w-full flex flex-col flex-wrap justify-center">
+      <div className="mx-auto flex flex-col flex-wrap justify-center">
         {isLoading ? (
           <div className="flex justify-center">
             <svg
