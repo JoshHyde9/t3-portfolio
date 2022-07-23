@@ -10,7 +10,7 @@ interface GuestBook {
 
 const Guest = (guest: GuestBook) => {
   return (
-    <div key={guest.id}>
+    <div key={guest.id} className="px-4">
       <h1 className="text-4xl">{guest.username}</h1>
       <p>{guest.comment}</p>
     </div>
@@ -18,8 +18,12 @@ const Guest = (guest: GuestBook) => {
 };
 
 const GuestBook: React.FC = () => {
-  const { mutate, error } = trpc.useMutation(["guestbook.create"]);
-  const { data, isLoading } = trpc.useQuery(["guestbook.getAll"]);
+  const { data, isLoading, refetch } = trpc.useQuery(["guestbook.getAll"]);
+  const { mutate, error } = trpc.useMutation(["guestbook.create"], {
+    onSuccess: () => {
+      refetch();
+    },
+  });
 
   console.log(data);
 
@@ -32,8 +36,9 @@ const GuestBook: React.FC = () => {
     <div className="container mx-auto">
       <Formik
         initialValues={initialValues}
-        onSubmit={async (values) => {
+        onSubmit={async (values, { resetForm }) => {
           mutate(values);
+          resetForm();
         }}
       >
         <Form>
@@ -58,7 +63,7 @@ const GuestBook: React.FC = () => {
         ) : (
           data &&
           data.map((guest) => {
-            return Guest(guest);
+            return <Guest {...guest} />;
           })
         )}
       </div>
