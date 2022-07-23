@@ -56,7 +56,7 @@ const GuestBook: React.FC = () => {
               />
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="flex flex-wrap -mx-3 mb-1">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -73,6 +73,20 @@ const GuestBook: React.FC = () => {
               />
             </div>
           </div>
+          {!error ? (
+            ""
+          ) : (
+            <div className="flex flex-wrap mb-2">
+              {error.data?.code === "BAD_REQUEST" ? (
+                <p className="text-sm text-gray-600">
+                  Please fill in all fields.
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
+          )}
+
           <div className="flex flex-wrap -mx-3 mb-6 px-3">
             <button
               className="w-full shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded transition ease-in-out duration-300"
@@ -83,11 +97,6 @@ const GuestBook: React.FC = () => {
           </div>
         </Form>
       </Formik>
-      {error
-        ? error.data?.code === "BAD_REQUEST"
-          ? "Please fill in all fields."
-          : ""
-        : ""}
 
       <div className="flex flex-wrap flex-col justify-center md:flex-row">
         {isLoading ? (
