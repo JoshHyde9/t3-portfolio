@@ -1,8 +1,22 @@
+import { Field, Form, Formik } from "formik";
 import type { NextPage } from "next";
 
 import NextLink from "next/link";
+import { trpc } from "../utils/trpc";
+
+interface sendEmail {
+  subject: string;
+  message: string;
+}
 
 const Contact: NextPage = () => {
+  const { mutate, error, isLoading } = trpc.useMutation(["email.sendEmail"]);
+
+  const initialValues: sendEmail = {
+    subject: "",
+    message: "",
+  };
+
   return (
     <div className="container mx-auto max-w-2xl px-2">
       <h1 className="text-4xl text-purple-300">Contact me</h1>
@@ -69,6 +83,97 @@ const Contact: NextPage = () => {
           <p className="text-center">Tell me I'm doing something wrong</p>
         </div>
       </div>
+
+      <p className="mb-2">
+        Or you can send me a good ol' fashioned email if you want
+      </p>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={async (values, { resetForm }) => {
+          mutate(values);
+          resetForm();
+        }}
+      >
+        <Form className="mx-auto w-full">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label
+                className="block uppercase tracking-wide text-xs font-bold mb-2"
+                htmlFor="subject"
+              >
+                Subject:
+              </label>
+              <Field
+                name="subject"
+                className="bg-gray-200 appearance-none border-3 border-purple-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:border-purple-500 transition ease-in-out duration-300"
+                placeholder="Subject"
+                autoComplete="off"
+              />
+            </div>
+          </div>
+          <div className="flex flex-wrap -mx-3 mb-2">
+            <div className="w-full px-3">
+              <label
+                className="block uppercase tracking-wide text-xs font-bold mb-2"
+                htmlFor="message"
+              >
+                Message:
+              </label>
+              <Field
+                name="message"
+                className="bg-gray-200 appearance-none border-3 border-purple-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:border-purple-500 transition ease-in-out duration-300"
+                as="textarea"
+                rows="5"
+                placeholder="Message"
+              />
+            </div>
+          </div>
+          {!error ? (
+            ""
+          ) : (
+            <div className="flex flex-wrap mb-2">
+              {error.data?.code === "BAD_REQUEST" ? (
+                <p className="leading-relaxed italic text-sm text-purple-500">
+                  Please fill in all fields.
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
+          )}
+
+          <div className="flex flex-wrap -mx-3 mb-6 px-3">
+            <button
+              disabled={isLoading}
+              className="flex flex-row justify-center w-full shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded transition ease-in-out duration-300 disabled:cursor-not-allowed"
+              type="submit"
+            >
+              {isLoading ? (
+                <svg
+                  className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75 fill-purple-500"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+              ) : null}
+              Send email
+            </button>
+          </div>
+        </Form>
+      </Formik>
     </div>
   );
 };
