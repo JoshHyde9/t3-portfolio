@@ -21,8 +21,8 @@ const Contact: NextPage = () => {
     <div className="container mx-auto max-w-2xl px-2">
       <h1 className="text-4xl text-purple-300">Contact me</h1>
       <p>
-        Do you have any questions or concerns? Here are the easiest ways to
-        contact me!
+        Do you have any questions, concerns or just want to say g'day? Here are
+        the easiest ways to contact me!
       </p>
 
       <div className="flex flex-row flex-wrap justify-between mt-10 px-2 md:px-0">
@@ -85,7 +85,7 @@ const Contact: NextPage = () => {
       </div>
 
       <p className="mb-2">
-        Or you can send me a good ol' fashioned email if you want
+        Or you can send me a good ol' fashioned email if you want.
       </p>
       <Formik
         initialValues={initialValues}
