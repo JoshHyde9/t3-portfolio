@@ -6,7 +6,7 @@ import superjson from "superjson";
 import "../styles/globals.css";
 
 // Navbar component
-import NavBar from "../components/NavBar";
+import NavBar from "../components/layout/NavBar";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
