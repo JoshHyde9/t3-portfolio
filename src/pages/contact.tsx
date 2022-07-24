@@ -28,7 +28,7 @@ const Contact: NextPage = () => {
       <div className="flex flex-row flex-wrap justify-between mt-10 px-2 md:px-0">
         <div className="flex flex-col items-center w-36 mb-4">
           <NextLink href="https://www.linkedin.com/in/josh-hyde-244324245/">
-            <a target="_blank" ref="noopner noreferrer">
+            <a target="_blank" rel="noopner noreferrer">
               <svg
                 className="mb-1 h-10 fill-purple-500 hover:fill-purple-300 transition ease-in-out duration-300"
                 xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@ const Contact: NextPage = () => {
         </div>
         <div className="flex flex-col items-center w-36 mb-4">
           <NextLink href="https://twitter.com/JoshHyde9">
-            <a target="_blank" ref="noopner noreferrer">
+            <a target="_blank" rel="noopner noreferrer">
               <svg
                 className="mb-1 h-10 fill-purple-500 hover:fill-purple-300 transition ease-in-out duration-300"
                 xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +56,7 @@ const Contact: NextPage = () => {
         </div>
         <div className="flex flex-col items-center w-36 mb-4">
           <NextLink href="https://discordapp.com/users/197955018828152833/">
-            <a target="_blank" ref="noopner noreferrer">
+            <a target="_blank" rel="noopner noreferrer">
               <svg
                 className="mb-1 h-10 fill-purple-500 hover:fill-purple-300 transition ease-in-out duration-300"
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ const Contact: NextPage = () => {
         </div>
         <div className="flex flex-col items-center w-36">
           <NextLink href="https://github.com/JoshHyde9">
-            <a target="_blank" ref="noopner noreferrer">
+            <a target="_blank" rel="noopner noreferrer">
               <svg
                 className="mb-1 h-10 fill-purple-500 hover:fill-purple-300 transition ease-in-out duration-300"
                 xmlns="http://www.w3.org/2000/svg"
