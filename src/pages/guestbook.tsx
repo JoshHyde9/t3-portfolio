@@ -1,9 +1,9 @@
-import React from "react";
+import type { NextPage } from "next";
 import { trpc } from "../utils/trpc";
 import { Field, Form, Formik } from "formik";
 import Guest, { GuestBook } from "../components/Guest";
 
-const GuestBook: React.FC = () => {
+const GuestBook: NextPage = () => {
   const { data, isLoading, refetch } = trpc.useQuery(["guestbook.getAll"]);
   const { mutate, error } = trpc.useMutation(["guestbook.create"], {
     onSuccess: () => {
