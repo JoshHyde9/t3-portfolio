@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import "mixins";
-@import url("https://fonts.googleapis.com/css2?family=Mulish&family=Nanum+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish&family=Nanum+Gothic:wght@400;700;800&display=swap");
 
 body {
   @apply bg-neutral-900 text-slate-100;

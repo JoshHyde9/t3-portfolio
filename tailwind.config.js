@@ -3,10 +3,10 @@
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    fontFamily: {
-      sans: "Nanum Gothic",
-    },
     extend: {
+      fontFamily: {
+        sans: "Nanum Gothic",
+      },
       borderWidth: {
         3: "3px",
       },

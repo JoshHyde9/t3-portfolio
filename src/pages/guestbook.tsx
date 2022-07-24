@@ -50,7 +50,7 @@ const GuestBook: React.FC = () => {
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">
               <label
-                className="block uppercase tracking-wide text-xs font-bold mb-2"
+                className="block uppercase tracking-wide text-xs font-extrabold mb-2"
                 htmlFor="username"
               >
                 Name:
@@ -66,7 +66,7 @@ const GuestBook: React.FC = () => {
           <div className="flex flex-wrap -mx-3 mb-2">
             <div className="w-full px-3">
               <label
-                className="block uppercase tracking-wide text-xs font-bold mb-2"
+                className="block uppercase tracking-wide text-xs font-extrabold mb-2"
                 htmlFor="comment"
               >
                 Comment:
@@ -96,7 +96,7 @@ const GuestBook: React.FC = () => {
 
           <div className="flex flex-wrap -mx-3 mb-6 px-3">
             <button
-              className="w-full shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded transition ease-in-out duration-300"
+              className="w-full shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-extrabold py-2 px-4 rounded transition ease-in-out duration-300"
               type="submit"
             >
               Comment
