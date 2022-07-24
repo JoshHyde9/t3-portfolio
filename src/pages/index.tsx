@@ -7,7 +7,7 @@ const Home: NextPage = () => {
         👋, I'm <span className="text-purple-300">Josh</span>.
       </h1>
       <h2 className="text-4xl w-4/5 md:w-1/3 2xl:w-1/6 text-center">
-        Full Stack developer and likes to build things.
+        Full Stack developer that likes to build things.
       </h2>
     </div>
   );
