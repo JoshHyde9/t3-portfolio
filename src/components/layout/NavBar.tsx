@@ -62,7 +62,7 @@ export const NavBar = () => {
   return (
     <nav className="flex px-4 py-4 h-20 items-center">
       <MobileNav open={open} setOpen={setOpen} />
-      <div className="w-full flex justify-end items-center md:w-9/12">
+      <div className="w-full flex justify-end items-center md:mr-10">
         <div
           className="z-50 flex relative w-8 h-8 flex-col justify-between items-center md:hidden"
           onClick={() => {
