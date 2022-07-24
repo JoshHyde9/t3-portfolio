@@ -11,7 +11,17 @@ const MobileNav = ({ open, setOpen }: any) => {
         open ? "-translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out filter drop-shadow-md `}
     >
-      <div className="flex flex-col ml-4">
+      <div className="flex flex-col mt-9 ml-4">
+        <NextLink href="/">
+          <a
+            className={`text-xl font-normal my-4 ${
+              router.asPath === "/" ? "text-purple-500" : ""
+            }`}
+            onClick={() => setOpen(!open)}
+          >
+            Home
+          </a>
+        </NextLink>
         <NextLink href="/about">
           <a
             className={`text-xl font-normal my-4 ${
@@ -40,16 +50,6 @@ const MobileNav = ({ open, setOpen }: any) => {
             onClick={() => setOpen(!open)}
           >
             Guestbook
-          </a>
-        </NextLink>
-        <NextLink href="/">
-          <a
-            className={`text-xl font-normal my-4 ${
-              router.asPath === "/" ? "text-purple-500" : ""
-            }`}
-            onClick={() => setOpen(!open)}
-          >
-            Home
           </a>
         </NextLink>
       </div>
@@ -88,10 +88,10 @@ export const NavBar = () => {
         </div>
 
         <div className="hidden md:flex">
+          <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>
           <NavLink to="/guestbook">Guestbook</NavLink>
-          <NavLink to="/">Home</NavLink>
         </div>
       </div>
     </nav>
