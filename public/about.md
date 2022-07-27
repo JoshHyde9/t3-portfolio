@@ -16,5 +16,5 @@ I am a year 12 graduate and have enrolled myself into HarvardX's "Computer Scien
 | ---------- | ----------- | ------- | ---------- |
 | TypeScript | JavaScript  | React   | Nextjs     |
 | Redis      | GraphQL     | Nodejs  | PostgreSQL |
-| Nodejs     | TypeORM     | MongoDB | Firebase   |
+| Expressjs  | TypeORM     | MongoDB | Firebase   |
 | tRPC       | TailwindCSS | Python  | SCSS       |
