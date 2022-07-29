@@ -1,6 +1,7 @@
 import SparkPost from "sparkpost";
+import { env } from "../server/env.mjs";
 
-const client = new SparkPost(process.env.SPARKPOST_API_KEY);
+const client = new SparkPost(env.SPARKPOST_API_KEY);
 
 export const sendEmail = async (subject: string, message: string) => {
   await client.transmissions.send({
@@ -9,6 +10,6 @@ export const sendEmail = async (subject: string, message: string) => {
       subject,
       html: message,
     },
-    recipients: [{ address: process.env.MY_EMAIL_ADDRESS! }],
+    recipients: [{ address: env.MY_EMAIL_ADDRESS }],
   });
 };
