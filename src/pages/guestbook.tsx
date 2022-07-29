@@ -5,10 +5,11 @@ import Guest, { GuestBook } from "../components/Guest";
 import SEO from "../components/SEO";
 
 const GuestBook: NextPage = () => {
-  const { data, isLoading, refetch } = trpc.useQuery(["guestbook.getAll"]);
+  const utils = trpc.useContext();
+  const { data, isLoading } = trpc.useQuery(["guestbook.getAll"]);
   const { mutate, error } = trpc.useMutation(["guestbook.create"], {
     onSuccess: () => {
-      refetch();
+      utils.invalidateQueries(["guestbook.getAll"]);
     },
   });
 
