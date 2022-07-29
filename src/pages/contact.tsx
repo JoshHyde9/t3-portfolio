@@ -8,6 +8,7 @@ import SEO from "../components/SEO";
 interface sendEmail {
   subject: string;
   message: string;
+  name: string;
 }
 
 const Contact: NextPage = () => {
@@ -16,6 +17,7 @@ const Contact: NextPage = () => {
   const initialValues: sendEmail = {
     subject: "",
     message: "",
+    name: "",
   };
 
   return (
@@ -63,6 +65,22 @@ const Contact: NextPage = () => {
           }}
         >
           <Form className="mx-auto w-full">
+            <div className="flex flex-wrap -mx-3 mb-6">
+              <div className="w-full px-3">
+                <label
+                  className="block uppercase tracking-wide text-xs font-extrabold mb-2"
+                  htmlFor="name"
+                >
+                  Name:
+                </label>
+                <Field
+                  name="name"
+                  className="bg-gray-200 appearance-none border-3 border-purple-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:border-purple-500 transition ease-in-out duration-300"
+                  placeholder="Your name"
+                  autoComplete="off"
+                />
+              </div>
+            </div>
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full px-3">
                 <label
