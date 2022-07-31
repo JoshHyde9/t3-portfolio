@@ -1,1 +1,68 @@
-@import"https://fonts.googleapis.com/css2?family=Mulish&family=Nanum+Gothic&display=swap";@tailwind base;@tailwind components;@tailwind utilities;@-webkit-keyframes FadeIn{0%{opacity:.1;transform:translatey(10px)}100%{opacity:1;transform:translateX(0px)}}@keyframes FadeIn{0%{opacity:.1;transform:translatey(10px)}100%{opacity:1;transform:translateX(0px)}}body{@apply bg-neutral-900 text-slate-100}#__next{height:calc(100vh - 80px)}h1,h2,h3,h4,h5,h6{font-family:"Mulish"}.fade{-webkit-animation:FadeIn 300ms ease-in;animation:FadeIn 300ms ease-in}
+@import url("https://fonts.googleapis.com/css2?family=Mulish&family=Nanum+Gothic:wght@400;700;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@-webkit-keyframes FadeIn {
+  0% {
+    opacity: 0.1;
+    transform: translatey(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes FadeIn {
+  0% {
+    opacity: 0.1;
+    transform: translatey(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+body {
+  @apply bg-neutral-900 text-slate-100;
+}
+
+#__next {
+  height: calc(100vh - 80px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Mulish";
+}
+
+.fade {
+  -webkit-animation: FadeIn 300ms ease-in;
+          animation: FadeIn 300ms ease-in;
+}
+
+.stroke {
+  padding-bottom: 15px;
+}
+.stroke:hover::after {
+  width: 100%;
+}
+.stroke::after {
+  @apply bg-purple-300;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0;
+  content: ".";
+  color: transparent;
+  height: 1px;
+  transition: all 0.5s;
+}
+.stroke::before {
+  transition: all 0.5s;
+}

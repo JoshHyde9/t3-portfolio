@@ -87,7 +87,7 @@ export const NavBar = () => {
           />
         </div>
 
-        <div className="hidden md:flex">
+        <div className="hidden mt-10 md:flex">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>
@@ -104,8 +104,10 @@ const NavLink = ({ to, children }: any) => {
   return (
     <a
       href={to}
-      className={`mx-4 transition ease-in-out duration-300 hover:text-purple-300 ${
-        router.asPath === to ? "text-purple-500" : ""
+      className={`mx-4 transition ease-in-out duration-300 relative ${
+        router.asPath === to
+          ? "text-purple-500"
+          : "stroke  hover:text-purple-300"
       }`}
     >
       {children}

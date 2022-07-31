@@ -25,3 +25,30 @@ h6 {
 .fade {
   animation: FadeIn 300ms ease-in;
 }
+
+.stroke {
+  padding-bottom: 15px;
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+  &::after {
+    @apply bg-purple-300;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0;
+    content: ".";
+    color: transparent;
+    height: 1px;
+    transition: all 0.5s;
+  }
+
+  &::before {
+    transition: all 0.5s;
+  }
+}
