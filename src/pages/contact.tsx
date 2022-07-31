@@ -65,8 +65,8 @@ const Contact: NextPage = () => {
           }}
         >
           <Form className="mx-auto w-full">
-            <div className="flex flex-wrap -mx-3 mb-6">
-              <div className="w-full px-3">
+            <div className="flex flex-wrap mb-6">
+              <div className="w-full">
                 <label
                   className="block uppercase tracking-wide text-xs font-extrabold mb-2"
                   htmlFor="name"
@@ -81,8 +81,8 @@ const Contact: NextPage = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap -mx-3 mb-6">
-              <div className="w-full px-3">
+            <div className="flex flex-wrap mb-6">
+              <div className="w-full">
                 <label
                   className="block uppercase tracking-wide text-xs font-extrabold mb-2"
                   htmlFor="subject"
@@ -97,8 +97,8 @@ const Contact: NextPage = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap -mx-3 mb-2">
-              <div className="w-full px-3">
+            <div className="flex flex-wrap mb-2">
+              <div className="w-full">
                 <label
                   className="block uppercase tracking-wide text-xs font-extrabold mb-2"
                   htmlFor="message"
@@ -128,7 +128,7 @@ const Contact: NextPage = () => {
               </div>
             )}
 
-            <div className="flex flex-wrap -mx-3 mb-6 px-3">
+            <div className="flex flex-wrap mb-6">
               <button
                 disabled={isLoading}
                 className="flex flex-row justify-center w-full shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-extrabold py-2 px-4 rounded transition ease-in-out duration-300 disabled:cursor-not-allowed"

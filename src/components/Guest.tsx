@@ -18,7 +18,7 @@ const Guest = (guest: GuestBook) => {
             {guest.username}
           </h1>
         </div>
-        <p className="text-sm text-neutral-400">
+        <p className="text-xs md:text-sm text-neutral-400">
           {dayjs(guest.createdAt).format("DD/MM/YYYY - HH:mm")}
         </p>
       </div>

@@ -21,7 +21,7 @@ const GuestBook: NextPage = () => {
   return (
     <>
       <SEO title="Guestbook | Josh Hyde" url="https://joshhyde.me/guestbook" />
-      <div className="container mx-auto max-w-2xl px-2">
+      <div className="container mx-auto max-w-2xl px-3">
         <h1 className="text-4xl text-purple-300 mt-2">Guestbook</h1>
         <p className="leading-tight">
           Please feel free to leave a comment now that you have found this page!
@@ -34,8 +34,8 @@ const GuestBook: NextPage = () => {
           }}
         >
           <Form className="mx-auto w-full mt-10">
-            <div className="flex flex-wrap -mx-3 mb-6">
-              <div className="w-full px-3">
+            <div className="flex flex-wrap mb-6">
+              <div className="w-full">
                 <label
                   className="block uppercase tracking-wide text-xs font-extrabold mb-2"
                   htmlFor="username"
@@ -50,8 +50,8 @@ const GuestBook: NextPage = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap -mx-3 mb-2">
-              <div className="w-full px-3">
+            <div className="flex flex-wrap mb-2">
+              <div className="w-full">
                 <label
                   className="block uppercase tracking-wide text-xs font-extrabold mb-2"
                   htmlFor="comment"
@@ -81,7 +81,7 @@ const GuestBook: NextPage = () => {
               </div>
             )}
 
-            <div className="flex flex-wrap -mx-3 mb-6 px-3">
+            <div className="flex flex-wrap mb-6">
               <button
                 className="w-full shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-extrabold py-2 px-4 rounded transition ease-in-out duration-300"
                 type="submit"
