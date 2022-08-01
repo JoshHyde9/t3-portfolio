@@ -45,7 +45,7 @@ const About: NextPage = () => {
           Science section of the course and learnt a lot. I am glad to be able
           to use what I have learned and put that knowledge into my projects. If
           you're interested in working together or want to ask a question,
-          please do not hesitate to{" "}
+          please do not hesitate to
           <NextLink href="/contact">
             <a className="transition ease-in-out duration-300 text-purple-500 hover:text-purple-300">
               contact me
@@ -53,6 +53,7 @@ const About: NextPage = () => {
           </NextLink>
           .
         </p>
+        &nbsp;
         <div className="container mx-auto">
           <KnowledgeRow
             libraries={{
@@ -61,7 +62,7 @@ const About: NextPage = () => {
           />
           <KnowledgeRow
             libraries={{
-              array: ["tRPC", "React.js", "javaScript", "Express.js"],
+              array: ["tRPC", "React.js", "JavaScript", "Express.js"],
             }}
           />
           <KnowledgeRow
