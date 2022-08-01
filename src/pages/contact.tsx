@@ -135,7 +135,7 @@ const Contact: NextPage = () => {
             <div className="flex flex-wrap mb-6">
               <button
                 disabled={isLoading}
-                className="flex flex-row justify-center w-full shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-extrabold py-2 px-4 rounded transition ease-in-out duration-300 disabled:cursor-not-allowed"
+                className="flex flex-row justify-center w-full shadow bg-purple-500 text-white font-extrabold py-2 px-4 mb-2 rounded transition ease-in-out duration-300 hover:bg-purple-400 focus:shadow-outline focus:outline-none disabled:cursor-not-allowed"
                 type="submit"
               >
                 {isLoading ? (
