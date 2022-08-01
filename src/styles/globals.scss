@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish&family=Nanum+Gothic:wght@400;700;800&display=swap");
 
 body {
-  @apply bg-neutral-900 text-slate-100 overflow-x-hidden;
+  @apply bg-neutral-900 text-slate-100 w-screen overflow-x-hidden;
 }
 
 #__next {
