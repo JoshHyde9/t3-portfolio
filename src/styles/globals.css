@@ -23,7 +23,7 @@
   }
 }
 body {
-  @apply bg-neutral-900 text-slate-100;
+  @apply bg-neutral-900 text-slate-100 overflow-x-hidden;
 }
 
 #__next {

@@ -60,7 +60,7 @@ const MobileNav = ({ open, setOpen }: any) => {
 export const NavBar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="flex px-4 py-4 h-20 items-center">
+    <nav className="flex px-4 py-4 h-20 w-screen items-center">
       <MobileNav open={open} setOpen={setOpen} />
       <div className="w-full flex justify-end items-center md:pr-10">
         <div
