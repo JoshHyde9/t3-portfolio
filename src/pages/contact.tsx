@@ -22,7 +22,11 @@ const Contact: NextPage = () => {
 
   return (
     <>
-      <SEO title="Contact Me | Josh Hyde" url="https://joshhyde.me/contact" />
+      <SEO
+        title="Contact Me | Josh Hyde"
+        url="https://joshhyde.me/contact"
+        description="Here are the best ways of being able to contact me for what ever reason."
+      />
 
       <div className="container mx-auto max-w-2xl px-2">
         <h1 className="text-4xl text-purple-300">Contact me</h1>

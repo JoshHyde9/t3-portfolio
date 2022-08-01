@@ -15,7 +15,12 @@ const About: NextPage = () => {
 
   return (
     <>
-      <SEO title="About Me | Josh Hyde" url="https://joshhyde.me/about" />
+      <SEO
+        title="About Me | Josh Hyde"
+        url="https://joshhyde.me/about"
+        description="Want to learn more about me as a person or my skills? Funnily enough, this page is the best way to found that out."
+      />
+
       <div className="container mx-auto max-w-2xl px-2">
         <ReactMarkdown
           components={{

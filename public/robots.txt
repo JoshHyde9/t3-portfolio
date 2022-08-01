@@ -1,0 +1,10 @@
+User-Agent: *
+
+Allow: /
+Allow: /guestbook
+Allow: /contact
+Allow: /about
+
+Disallow: /api/
+
+Sitemap: https://joshhyde.me/sitemap.xml

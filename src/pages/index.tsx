@@ -4,7 +4,12 @@ import SEO from "../components/SEO";
 const Home: NextPage = () => {
   return (
     <>
-      <SEO title="Josh Hyde | Full Stack Developer" url="https://joshhyde.me" />
+      <SEO
+        title="Josh Hyde | Full Stack Developer"
+        url="https://joshhyde.me"
+        description="A handy dandy website for displaying my accomplishments, skills, experiences, and attributes."
+      />
+
       <div className="fade flex justify-center items-center flex-col h-full pb-20">
         <h1 className="text-6xl mb-2">
           👋, I'm <span className="text-purple-300">Josh</span>.

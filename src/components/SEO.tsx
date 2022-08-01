@@ -3,22 +3,21 @@ import Head from "next/head";
 interface SEOProps {
   title: string;
   url: string;
+  description: string;
 }
 
-const SEO = ({ title, url }: SEOProps) => {
+const SEO = ({ title, url, description }: SEOProps) => {
   return (
     <Head>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <title>{title}</title>
       <meta property="title" content={title} key="title" />
       <meta property="og:title" content={title} key="title" />
+      <meta name="description" content={description} />
+      <meta name="og:description" content={description} />
       <meta
-        name="description"
-        content="A handy dandy website for displaying my accomplishments, skills, experiences, and attributes"
-      />
-      <meta
-        name="og:description"
-        content="A handy dandy website for displaying my accomplishments, skills, experiences, and attributes"
+        name="keywords"
+        content="Josh, Hyde, Josh Hyde, full, stack, portfolio, full stack portfolio, developer, full stack developer"
       />
       <meta name="og:site_name" content="Josh Hyde | Full Stack Developer" />
       <meta name="author" content="Josh Hyde" />
@@ -27,11 +26,14 @@ const SEO = ({ title, url }: SEOProps) => {
       <meta property="og:url" content={url} />
       <meta property="type" content="website" />
       <meta property="og:type" content="website" />
+      <meta name="twitter:site" content="@JoshHyde9" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
       <meta
-        name="twitter:card"
+        name="twitter:image"
         content="https://avatars.githubusercontent.com/u/40751087?v=4"
       />
-      <meta name="twitter:site" content="@JoshHyde9" />
+      <meta name="twitter:card" content="app" />
       <meta
         property="image"
         content="https://avatars.githubusercontent.com/u/40751087?v=4"
