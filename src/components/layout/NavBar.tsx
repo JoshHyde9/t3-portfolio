@@ -62,7 +62,7 @@ export const NavBar = () => {
   return (
     <nav className="flex px-4 py-4 h-20 items-center">
       <MobileNav open={open} setOpen={setOpen} />
-      <div className="w-full flex justify-end items-center md:mr-10">
+      <div className="w-full flex justify-end items-center md:pr-10">
         <div
           className="z-50 flex relative w-8 h-8 flex-col justify-between items-center md:hidden"
           onClick={() => {
@@ -104,7 +104,7 @@ const NavLink = ({ to, children }: any) => {
   return (
     <a
       href={to}
-      className={`mx-4 transition ease-in-out duration-300 relative ${
+      className={`px-4 transition ease-in-out duration-300 relative ${
         router.asPath === to
           ? "text-purple-500"
           : "stroke  hover:text-purple-300"
