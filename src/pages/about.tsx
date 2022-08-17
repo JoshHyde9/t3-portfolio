@@ -1,10 +1,22 @@
 import type { NextPage } from "next";
+import useEmblaCarousel from "embla-carousel-react";
+import classNames, { ClassNamesOptionsType } from "embla-carousel-class-names";
+
 import NextLink from "next/link";
+import NextImage from "next/image";
+
 import SEO from "../components/SEO";
+
+import rockGarden from "../assets/img/rock-garden.png";
+import smallJump from "../assets/img/small-jump.png";
+import stepDown from "../assets/img/step-down.png";
 
 interface ILibArray {
   array: [string, string, string, string];
 }
+
+const slides = [rockGarden, smallJump, stepDown];
+const mediaByIndex = (index: number) => slides[index % slides.length];
 
 const KnowledgeRow = ({ libraries }: { libraries: ILibArray }) => {
   return (
@@ -21,6 +33,21 @@ const KnowledgeRow = ({ libraries }: { libraries: ILibArray }) => {
 };
 
 const About: NextPage = () => {
+  const classOptions: ClassNamesOptionsType = {
+    selected: "",
+    draggable: "cursor-grab",
+    dragging: "cursor-grabbing",
+  };
+
+  const [viewportRef] = useEmblaCarousel(
+    {
+      skipSnaps: false,
+      loop: true,
+      startIndex: 1,
+    },
+    [classNames(classOptions)]
+  );
+
   return (
     <>
       <SEO
@@ -53,7 +80,7 @@ const About: NextPage = () => {
           </NextLink>
           .
         </p>
-        &nbsp;
+        <h2 className="text-3xl text-purple-300 mt-4">My abilities</h2>
         <div className="container mx-auto">
           <KnowledgeRow
             libraries={{
@@ -75,6 +102,34 @@ const About: NextPage = () => {
               array: ["TypeORM", "Prisma", "TailwindCSS", "Python"],
             }}
           />
+        </div>
+        <h2 className="text-3xl text-purple-300 mt-4">Do I go outside?</h2>
+        <p className="mb-1">
+          Believe it or not, I do! I am a fien for anything on wheels,
+          especially bikes. <br /> When I was camping as a little kid, I saw a
+          bloke send himself down a mountain on a bike and I thought "That looks
+          like fun!" and sure enough I was hooked and do not plan on giving up
+          on it any time soon.
+        </p>
+        <div className="overflow-hidden">
+          <div className="embla__viewport" ref={viewportRef}>
+            <div className="embla__container flex">
+              {slides.map((img, index: number) => {
+                return (
+                  <div className="embla__slide flex-carousel" key={index}>
+                    <div className="embla__slide__inner">
+                      <NextImage
+                        loading="lazy"
+                        className="embla__slide__img"
+                        src={mediaByIndex(index)}
+                        alt={img.src}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </>

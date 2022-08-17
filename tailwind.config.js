@@ -10,6 +10,9 @@ module.exports = {
       borderWidth: {
         3: "3px",
       },
+      flex: {
+        carousel: "0 0 90%",
+      },
     },
   },
   plugins: [],
