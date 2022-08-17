@@ -51,7 +51,7 @@ const About: NextPage = () => {
   return (
     <>
       <SEO
-        title="About Me | Josh Hyde"
+        title="About Me"
         url="https://joshhyde.me/about"
         description="Want to learn more about me as a person or my skills? Funnily enough, this page is the best way to found that out."
       />

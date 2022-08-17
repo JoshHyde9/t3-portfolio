@@ -23,7 +23,7 @@ const Contact: NextPage = () => {
   return (
     <>
       <SEO
-        title="Contact Me | Josh Hyde"
+        title="Contact Me"
         url="https://joshhyde.me/contact"
         description="Here are the best ways of being able to contact me for what ever reason."
       />

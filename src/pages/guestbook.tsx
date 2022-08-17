@@ -21,7 +21,7 @@ const GuestBook: NextPage = () => {
   return (
     <>
       <SEO
-        title="Guestbook | Josh Hyde"
+        title="Guestbook"
         url="https://joshhyde.me/guestbook"
         description="Just like a guestbook at a wedding, feel free to write what every you like. Make me laugh, cry or somewhere in-between."
       />

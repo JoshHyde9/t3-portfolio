@@ -7,7 +7,7 @@ const PageNotFound: NextPage = () => {
   return (
     <>
       <SEO
-        title="Page Not Found | Josh Hyde"
+        title="Page Not Found"
         url="https://joshhyde.me/about"
         description="Uh oh! Either I have done something wrong or you have tried to do something cheeky."
       />

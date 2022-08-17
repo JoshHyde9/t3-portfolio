@@ -5,7 +5,7 @@ const Home: NextPage = () => {
   return (
     <>
       <SEO
-        title="Josh Hyde | Full Stack Developer"
+        title="Josh Hyde"
         url="https://joshhyde.me"
         description="A handy dandy website for displaying my accomplishments, skills, experiences, and attributes."
       />
