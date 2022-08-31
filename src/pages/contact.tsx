@@ -6,18 +6,20 @@ import { IconLink } from "../components/IconLink";
 import SEO from "../components/SEO";
 
 interface sendEmail {
+  name: string;
+  contactEmail: string;
   subject: string;
   message: string;
-  name: string;
 }
 
 const Contact: NextPage = () => {
   const { mutate, error, isLoading } = trpc.useMutation(["email.sendEmail"]);
 
   const initialValues: sendEmail = {
+    name: "",
+    contactEmail: "",
     subject: "",
     message: "",
-    name: "",
   };
 
   return (
@@ -81,6 +83,22 @@ const Contact: NextPage = () => {
                   name="name"
                   className="bg-gray-200 appearance-none border-3 border-purple-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:border-purple-500 transition ease-in-out duration-300"
                   placeholder="Your name"
+                  autoComplete="off"
+                />
+              </div>
+            </div>
+            <div className="flex flex-wrap mb-6">
+              <div className="w-full">
+                <label
+                  className="block uppercase tracking-wide text-xs font-extrabold mb-2"
+                  htmlFor="contactEmail"
+                >
+                  Contact Email:
+                </label>
+                <Field
+                  name="contactEmail"
+                  className="bg-gray-200 appearance-none border-3 border-purple-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:border-purple-500 transition ease-in-out duration-300"
+                  placeholder="john@doe.com"
                   autoComplete="off"
                 />
               </div>
