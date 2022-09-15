@@ -2,8 +2,14 @@ import { createRouter } from "./context";
 import { z } from "zod";
 
 const createGuestBookSchema = z.object({
-  username: z.string().min(1, { message: "Please fill in required field." }),
-  comment: z.string().min(1, { message: "Please fill in required field." }),
+  username: z
+    .string({ required_error: "Please fill in required field." })
+    .min(1, { message: "Please fill in required field." })
+    .max(50, { message: "Username has to be 50 characters or less." }),
+  comment: z
+    .string({ required_error: "Please fill in required field." })
+    .min(1, { message: "Please fill in required field." })
+    .max(500, { message: "Comment has to be 500 characters or less." }),
 });
 
 export const guestBook = createRouter()

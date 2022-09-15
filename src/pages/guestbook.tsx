@@ -3,13 +3,30 @@ import { trpc } from "../utils/trpc";
 import { Field, Form, Formik } from "formik";
 import Guest, { GuestBook } from "../components/Guest";
 import SEO from "../components/SEO";
+import { useState } from "react";
+
+interface Error {
+  code: string;
+  minimum: number;
+  type: string;
+  inclusive: boolean;
+  message: string;
+  path: string[];
+}
 
 const GuestBook: NextPage = () => {
+  const [errors, setErrors] = useState<string[]>([]);
+
   const utils = trpc.useContext();
   const { data, isLoading } = trpc.useQuery(["guestbook.getAll"]);
-  const { mutate, error } = trpc.useMutation(["guestbook.create"], {
+  const { mutate, isSuccess } = trpc.useMutation(["guestbook.create"], {
     onSuccess: () => {
       utils.invalidateQueries(["guestbook.getAll"]);
+      setErrors([]);
+    },
+    onError: (error) => {
+      const epic: Error[] = JSON.parse(error.message);
+      setErrors(epic.map((e: Error) => e.message));
     },
   });
 
@@ -35,7 +52,10 @@ const GuestBook: NextPage = () => {
           initialValues={initialValues}
           onSubmit={async (values, { resetForm }) => {
             mutate(values);
-            resetForm();
+
+            if (isSuccess) {
+              resetForm();
+            }
           }}
         >
           <Form className="mx-auto w-full mt-10">
@@ -72,17 +92,12 @@ const GuestBook: NextPage = () => {
                 />
               </div>
             </div>
-            {!error ? (
-              ""
-            ) : (
+
+            {errors && (
               <div className="flex flex-wrap mb-2">
-                {error.data?.code === "BAD_REQUEST" ? (
-                  <p className="leading-relaxed italic text-sm text-purple-500">
-                    Please fill in all fields.
-                  </p>
-                ) : (
-                  ""
-                )}
+                <p className="leading-relaxed italic text-sm text-purple-500">
+                  {errors[0]}
+                </p>
               </div>
             )}
 
