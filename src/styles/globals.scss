@@ -52,3 +52,72 @@ h6 {
     transition: all 0.5s;
   }
 }
+
+.fancy-button {
+  &::before,
+  &::after {
+    right: 0;
+    bottom: 0;
+    background-color: #a855f7;
+  }
+
+  &::before {
+    width: 100%;
+    height: 2px;
+    transform: translateX(-100%);
+  }
+
+  &::after {
+    width: 2px;
+    height: 100%;
+    transform: translateY(100%);
+  }
+
+  &,
+  & > span {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    line-height: 24px;
+  }
+
+  & > span {
+    display: flex;
+    padding: 10px;
+  }
+
+  &::before,
+  &::after,
+  & > span::before,
+  & > span::after {
+    content: "";
+    position: absolute;
+    transition: transform 0.5s ease;
+  }
+
+  span::before,
+  span::after {
+    left: 0;
+    top: 0;
+    background-color: #a855f7;
+  }
+
+  span::before {
+    width: 100%;
+    height: 2px;
+    transform: translateX(100%);
+  }
+
+  span::after {
+    width: 2px;
+    height: 100%;
+    transform: translateY(-100%);
+  }
+
+  &:hover::before,
+  &:hover::after,
+  &:hover > span::before,
+  &:hover > span::after {
+    transform: translate(0, 0);
+  }
+}

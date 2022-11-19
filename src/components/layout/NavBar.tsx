@@ -1,13 +1,20 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 
-const MobileNav = ({ open, setOpen }: any) => {
+const MobileNav = ({
+  open,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}) => {
   const router = useRouter();
 
   return (
     <div
-      className={`absolute top-0 left-0 h-screen w-screen bg-neutral-900 transform ${
+      className={`absolute top-0 left-0 h-screen w-screen z-10 bg-neutral-900 transform ${
         open ? "-translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out filter drop-shadow-md `}
     >
@@ -30,6 +37,16 @@ const MobileNav = ({ open, setOpen }: any) => {
             onClick={() => setOpen(!open)}
           >
             About
+          </a>
+        </NextLink>
+        <NextLink href="/projects">
+          <a
+            className={`text-xl font-normal my-4 ${
+              router.asPath === "/projects" ? "text-purple-500" : ""
+            }`}
+            onClick={() => setOpen(!open)}
+          >
+            Projects
           </a>
         </NextLink>
         <NextLink href="/contact">
@@ -90,6 +107,7 @@ export const NavBar = () => {
         <div className="hidden mt-10 md:flex">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
+          <NavLink to="/projects">Projects</NavLink>
           <NavLink to="/contact">Contact</NavLink>
           <NavLink to="/guestbook">Guestbook</NavLink>
         </div>
@@ -98,7 +116,13 @@ export const NavBar = () => {
   );
 };
 
-const NavLink = ({ to, children }: any) => {
+const NavLink = ({
+  to,
+  children,
+}: {
+  to: string;
+  children: React.ReactNode;
+}) => {
   const router = useRouter();
 
   return (
