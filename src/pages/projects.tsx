@@ -32,7 +32,7 @@ const Projects: NextPage = () => {
 
       <ProjectCard
         techStack="JavaScript / Raw DOM manipulation"
-        githubLink="https://joshhyde9.github.io/morse-translator/"
+        githubLink="https://github.com/JoshHyde9/morse-translator/"
         name="Morse Code Translator"
         imageURL="https://raw.githubusercontent.com/JoshHyde9/morse-translator/main/assets/preview.png"
         deployedLink="https://joshhyde9.github.io/morse-translator/"
