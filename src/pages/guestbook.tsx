@@ -50,12 +50,11 @@ const GuestBook: NextPage = () => {
         </p>
         <Formik
           initialValues={initialValues}
-          onSubmit={async (values) => {
+          onSubmit={async (values, { resetForm }) => {
             mutate(values);
 
             if (isSuccess) {
-              initialValues.username = "";
-              initialValues.comment = "";
+              resetForm();
             }
           }}
         >
