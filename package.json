@@ -11,11 +11,10 @@
   },
   "dependencies": {
     "@prisma/client": "^4.8.0",
+    "@trpc-limiter/upstash": "^0.0.3",
     "@trpc/client": "^10.7.0",
     "@trpc/next": "^10.7.0",
     "@trpc/server": "^10.7.0",
-    "@upstash/ratelimit": "^0.1.5",
-    "@upstash/redis": "^1.13.1",
     "dayjs": "^1.11.4",
     "embla-carousel-class-names": "^7.0.0",
     "embla-carousel-react": "^7.0.0",

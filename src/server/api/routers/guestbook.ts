@@ -1,6 +1,10 @@
 import { z } from "zod";
 
-import { createTRPCRouter, publicProcedure } from "../trpc";
+import {
+  createTRPCRouter,
+  publicProcedure,
+  rateLimitedProcedure,
+} from "../trpc";
 
 const createGuestBookSchema = z.object({
   username: z
@@ -14,7 +18,7 @@ const createGuestBookSchema = z.object({
 });
 
 export const guestbookRouter = createTRPCRouter({
-  getAll: publicProcedure.query(async ({ ctx }) => {
+  getAll: rateLimitedProcedure.query(async ({ ctx }) => {
     return await ctx.prisma.guestBook.findMany({
       orderBy: {
         createdAt: "desc",

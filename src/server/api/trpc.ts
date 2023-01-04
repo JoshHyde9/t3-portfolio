@@ -16,6 +16,7 @@
  * processing a request
  *
  */
+import { createTRPCUpstashLimiter } from "@trpc-limiter/upstash";
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
 
 import { prisma } from "../db";
@@ -42,8 +43,12 @@ const createInnerTRPCContext = async (_opts: CreateContextOptions) => {
  * process every request that goes through your tRPC endpoint
  * @link https://trpc.io/docs/context
  */
-export const createTRPCContext = async (_opts: CreateNextContextOptions) => {
-  return await createInnerTRPCContext({});
+export const createTRPCContext = async (opts: CreateNextContextOptions) => {
+  return {
+    req: opts.req,
+    res: opts.res,
+    ...(await createInnerTRPCContext({})),
+  };
 };
 
 /**
@@ -54,6 +59,7 @@ export const createTRPCContext = async (_opts: CreateNextContextOptions) => {
  */
 import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
+import { NextApiRequest } from "next/types";
 
 const t = initTRPC
   .context<Awaited<ReturnType<typeof createTRPCContext>>>()
@@ -85,3 +91,23 @@ export const createTRPCRouter = t.router;
  * can still access user session data if they are logged in
  */
 export const publicProcedure = t.procedure;
+
+const getFingerPrint = (req: NextApiRequest) => {
+  const ip = req.socket.remoteAddress ?? req.headers["x-forwarded-for"];
+  return (Array.isArray(ip) ? ip[0] : ip) ?? "127.0.0.1";
+};
+export const rateLimiter = createTRPCUpstashLimiter({
+  root: t,
+  fingerprint: (ctx) => getFingerPrint(ctx.req),
+  windowMs: 20000,
+  message: (hitInfo) =>
+    `Too many requests, please try again later. ${Math.ceil(
+      (hitInfo.reset - Date.now()) / 1000
+    )}`,
+  onLimit: (hitInfo) => {
+    console.log(hitInfo);
+  },
+  max: 5,
+});
+
+export const rateLimitedProcedure = publicProcedure.use(rateLimiter);
