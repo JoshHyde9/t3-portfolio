@@ -9,7 +9,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <>
       <NavBar />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 };
