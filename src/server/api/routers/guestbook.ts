@@ -1,5 +1,6 @@
-import { createRouter } from "./context";
 import { z } from "zod";
+
+import { createTRPCRouter, publicProcedure } from "../trpc";
 
 const createGuestBookSchema = z.object({
   username: z
@@ -12,27 +13,20 @@ const createGuestBookSchema = z.object({
     .max(500, { message: "Comment has to be 500 characters or less." }),
 });
 
-export const guestBook = createRouter()
-  .mutation("create", {
-    input: createGuestBookSchema,
-    async resolve({ input, ctx }) {
+export const guestbookRouter = createTRPCRouter({
+  getAll: publicProcedure.query(async ({ ctx }) => {
+    return await ctx.prisma.guestBook.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+  }),
+  create: publicProcedure
+    .input(createGuestBookSchema)
+    .mutation(async ({ input, ctx }) => {
       const { username, comment } = input;
-
-      const newGuest = await ctx.prisma.guestBook.create({
+      return await ctx.prisma.guestBook.create({
         data: { username, comment },
       });
-
-      return newGuest;
-    },
-  })
-  .query("getAll", {
-    async resolve({ ctx }) {
-      const allGuests = await ctx.prisma.guestBook.findMany({
-        orderBy: {
-          createdAt: "desc",
-        },
-      });
-
-      return allGuests;
-    },
-  });
+    }),
+});

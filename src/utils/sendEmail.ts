@@ -1,5 +1,5 @@
 import SparkPost from "sparkpost";
-import { env } from "../server/env.mjs";
+import { env } from "../env/server.mjs";
 
 const client = new SparkPost(env.SPARKPOST_API_KEY);
 

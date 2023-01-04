@@ -10,11 +10,10 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^4.1.0",
-    "@trpc/client": "^9.26.2",
-    "@trpc/next": "^9.26.2",
-    "@trpc/react": "^9.26.2",
-    "@trpc/server": "^9.26.2",
+    "@prisma/client": "^4.8.0",
+    "@trpc/client": "^10.7.0",
+    "@trpc/next": "^10.7.0",
+    "@trpc/server": "^10.7.0",
     "@upstash/ratelimit": "^0.1.5",
     "@upstash/redis": "^1.13.1",
     "dayjs": "^1.11.4",

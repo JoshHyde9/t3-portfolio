@@ -1,4 +1,4 @@
-import { trpc } from "../utils/trpc";
+import { api } from "../utils/api";
 import type { NextPage } from "next";
 import { Field, Form, Formik } from "formik";
 
@@ -13,7 +13,7 @@ interface sendEmail {
 }
 
 const Contact: NextPage = () => {
-  const { mutate, error, isLoading } = trpc.useMutation(["email.sendEmail"]);
+  const { mutate, error, isLoading } = api.email.sendEmail.useMutation();
 
   const initialValues: sendEmail = {
     name: "",

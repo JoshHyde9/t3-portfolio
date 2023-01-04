@@ -1,6 +1,7 @@
-import { createRouter } from "./context";
 import { z } from "zod";
-import { sendEmail } from "../../utils/sendEmail";
+import { sendEmail } from "../../../utils/sendEmail";
+
+import { createTRPCRouter, publicProcedure } from "../trpc";
 
 const createEmailSchema = z.object({
   name: z.string().min(1, { message: "Please fill in required field." }),
@@ -11,11 +12,11 @@ const createEmailSchema = z.object({
   message: z.string().min(1, { message: "Please fill in required field." }),
 });
 
-export const email = createRouter().mutation("sendEmail", {
-  input: createEmailSchema,
-  async resolve({ input }) {
-    const { name, contactEmail, subject, message } = input;
-
-    await sendEmail(subject, contactEmail, message, name);
-  },
+export const emailRouter = createTRPCRouter({
+  sendEmail: publicProcedure
+    .input(createEmailSchema)
+    .mutation(async ({ input }) => {
+      const { name, contactEmail, subject, message } = input;
+      await sendEmail(subject, contactEmail, message, name);
+    }),
 });

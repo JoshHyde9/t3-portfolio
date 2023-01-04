@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { trpc } from "../utils/trpc";
+import { api } from "../utils/api";
 import { Field, Form, Formik } from "formik";
 import Guest, { GuestBook } from "../components/Guest";
 import SEO from "../components/SEO";
@@ -17,11 +17,11 @@ interface Error {
 const GuestBook: NextPage = () => {
   const [errors, setErrors] = useState<string[]>([]);
 
-  const utils = trpc.useContext();
-  const { data, isLoading } = trpc.useQuery(["guestbook.getAll"]);
-  const { mutate, isSuccess } = trpc.useMutation(["guestbook.create"], {
+  const utils = api.useContext();
+  const { data, isLoading } = api.guestbook.getAll.useQuery();
+  const { mutate, isSuccess } = api.guestbook.create.useMutation({
     onSuccess: () => {
-      utils.invalidateQueries(["guestbook.getAll"]);
+      utils.guestbook.getAll.invalidate();
       setErrors([]);
     },
     onError: (error) => {
@@ -50,11 +50,12 @@ const GuestBook: NextPage = () => {
         </p>
         <Formik
           initialValues={initialValues}
-          onSubmit={async (values, { resetForm }) => {
+          onSubmit={async (values) => {
             mutate(values);
 
             if (isSuccess) {
-              resetForm();
+              initialValues.username = "";
+              initialValues.comment = "";
             }
           }}
         >
