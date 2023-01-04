@@ -133,5 +133,3 @@ const NavLink = ({
     </a>
   );
 };
-
-export default NavBar;
