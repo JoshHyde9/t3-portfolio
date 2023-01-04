@@ -19,10 +19,11 @@ const PageNotFound: NextPage = () => {
           cheeky.
         </h2>
 
-        <NextLink href="/">
-          <a className="text-3xl transition ease-in-out duration-300 relative text-purple-500 hover:text-purple-300">
-            Back Home
-          </a>
+        <NextLink
+          href="/"
+          className="text-3xl transition ease-in-out duration-300 relative text-purple-500 hover:text-purple-300"
+        >
+          Back Home
         </NextLink>
       </div>
     </>

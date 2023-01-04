@@ -19,55 +19,50 @@ const MobileNav = ({
       } transition-transform duration-300 ease-in-out filter drop-shadow-md `}
     >
       <div className="flex flex-col mt-9 ml-4">
-        <NextLink href="/">
-          <a
-            className={`text-xl font-normal my-4 ${
-              router.asPath === "/" ? "text-purple-500" : ""
-            }`}
-            onClick={() => setOpen(!open)}
-          >
-            Home
-          </a>
+        <NextLink
+          href="/"
+          className={`text-xl font-normal my-4 ${
+            router.asPath === "/" ? "text-purple-500" : ""
+          }`}
+          onClick={() => setOpen(!open)}
+        >
+          Home
         </NextLink>
-        <NextLink href="/about">
-          <a
-            className={`text-xl font-normal my-4 ${
-              router.asPath === "/about" ? "text-purple-500" : ""
-            }`}
-            onClick={() => setOpen(!open)}
-          >
-            About
-          </a>
+        <NextLink
+          href="/about"
+          className={`text-xl font-normal my-4 ${
+            router.asPath === "/about" ? "text-purple-500" : ""
+          }`}
+          onClick={() => setOpen(!open)}
+        >
+          About
         </NextLink>
-        <NextLink href="/projects">
-          <a
-            className={`text-xl font-normal my-4 ${
-              router.asPath === "/projects" ? "text-purple-500" : ""
-            }`}
-            onClick={() => setOpen(!open)}
-          >
-            Projects
-          </a>
+        <NextLink
+          href="/projects"
+          className={`text-xl font-normal my-4 ${
+            router.asPath === "/projects" ? "text-purple-500" : ""
+          }`}
+          onClick={() => setOpen(!open)}
+        >
+          Projects
         </NextLink>
-        <NextLink href="/contact">
-          <a
-            className={`text-xl font-normal my-4 ${
-              router.asPath === "/contact" ? "text-purple-500" : ""
-            }`}
-            onClick={() => setOpen(!open)}
-          >
-            Contact
-          </a>
+        <NextLink
+          href="/contact"
+          className={`text-xl font-normal my-4 ${
+            router.asPath === "/contact" ? "text-purple-500" : ""
+          }`}
+          onClick={() => setOpen(!open)}
+        >
+          Contact
         </NextLink>
-        <NextLink href="/guestbook">
-          <a
-            className={`text-xl font-normal my-4 ${
-              router.asPath === "/guestbook" ? "text-purple-500" : ""
-            }`}
-            onClick={() => setOpen(!open)}
-          >
-            Guestbook
-          </a>
+        <NextLink
+          href="/guestbook"
+          className={`text-xl font-normal my-4 ${
+            router.asPath === "/guestbook" ? "text-purple-500" : ""
+          }`}
+          onClick={() => setOpen(!open)}
+        >
+          Guestbook
         </NextLink>
       </div>
     </div>
