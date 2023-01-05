@@ -57,7 +57,7 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
  * This is where the trpc api is initialized, connecting the context and
  * transformer
  */
-import { initTRPC } from "@trpc/server";
+import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { NextApiRequest } from "next/types";
 
@@ -100,10 +100,14 @@ export const rateLimiter = createTRPCUpstashLimiter({
   root: t,
   fingerprint: (ctx) => getFingerPrint(ctx.req),
   windowMs: 20000,
-  message: (hitInfo) =>
-    `Too many requests, please try again later. ${Math.ceil(
-      (hitInfo.reset - Date.now()) / 1000
-    )}`,
+  message: (hitInfo) => {
+    throw new TRPCError({
+      code: "TOO_MANY_REQUESTS",
+      message: `Too many requests, please try again later. ${Math.ceil(
+        (hitInfo.reset - Date.now()) / 1000
+      )}`,
+    });
+  },
   onLimit: (hitInfo) => {
     console.log(hitInfo);
   },
