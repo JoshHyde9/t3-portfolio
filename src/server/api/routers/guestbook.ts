@@ -1,10 +1,6 @@
 import { z } from "zod";
 
-import {
-  createTRPCRouter,
-  publicProcedure,
-  rateLimitedProcedure,
-} from "../trpc";
+import { createTRPCRouter, rateLimitedProcedure } from "../trpc";
 
 const createGuestBookSchema = z.object({
   username: z
@@ -25,7 +21,7 @@ export const guestbookRouter = createTRPCRouter({
       },
     });
   }),
-  create: publicProcedure
+  create: rateLimitedProcedure
     .input(createGuestBookSchema)
     .mutation(async ({ input, ctx }) => {
       const { username, comment } = input;
