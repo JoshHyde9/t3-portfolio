@@ -11,7 +11,7 @@ export const sendEmail = async (
 ) => {
   await client.transmissions.send({
     content: {
-      from: `${name} <hello@joshhyde.me>`,
+      from: `${name} <no-reply.joshhyde.me>`,
       subject,
       html: `<html><body><p>Contact email: ${contactEmail}</p><p>${message}</p></body></html>`,
     },
